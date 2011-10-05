@@ -1,0 +1,83 @@
+<html style="height:100%">
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+        <script src="main.js"></script>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    </head>
+    <body style="height:100%">
+        <div id="header">
+            <h1>GS EZ Ingestion Form</h1>
+        </div>
+        <div id="main" style="width:40%; height:100%">
+            <h2>Product</h2>
+            <div id="static_content">
+            <input type="text" title="UPC" data-xml="upc" name="upc" value="upc" />
+            <input type="text" title="Artist" data-xml="artist" name="artist" value="artist" /><br />
+            <input type="text" title="Title" data-xml="title" name="title" value="title" />
+            <input type="text" title="Release Date" data-xml="release_date" name="release_date" value="release date (YYYY-mm-dd)" /><br />
+            <input type="text" title="Copyright" data-xml="copyright" name="copyright" value="copyright" />
+            <input type="text" title="Disc Count" data-xml="disc_count" name="disc_count" value="disc count" /><br />
+            <input type="text" title="Track Count" data=xml="track_count" name="track_count" value="track count" />
+            <input type="text" title="Label" data-xml+"label" name="label" value="label" /><br />
+            <input type="text" title="Genre" data-xml="genre" name="genre" value="genre" />
+            Explicit? <input title="Explicit" data-xml="explicit_lyrics" type="checkbox" name="explicit_lyrics" value="yes" /><br />
+            </div>
+
+            <h3>Contributors</h3>
+            <div id="contributors" class="contributors">
+            <input type="text" title="Role" data-xml="contributor" name="p_contributor_role_1" value="role" />
+            <input type="text" title="Name" data-xml="contributor" name="p_contributor_name_1" value="name" />
+            <input type="button" title="Add A Contributor" name="addProductContributor" onclick="addProductContributor()" value="Add Contributor" /><br />
+            </div>
+
+            <h3>Territories</h3>
+            <div id="territories" class="territories">
+            <input type="text" title="Country" data-xml="country" name="p_territory_country_1" value="country" />
+            <input type="text" title="Label" data-xml="territory" name="p_territory_label_1" value="label" />
+            <input type="button" title="Add A Territory" name="addProductTerritory" onclick="addProductTerritory()" value="Add Territory" /><br />
+            </div>
+
+            <div id="discs">
+                <h3>Disc</h3>
+                <div class="disc" style="padding-left: 1em">
+                    <h4>Tracks</h4>
+                    <input type="button" title="Add Track" name="addTrack" onclick="addTrack()" value="Add Track" />
+                        <ol id="tracks">
+                            <li id="track1">
+                                <input type="text" title="Artist" data-xml="artist" name="d1_artist_1" value="artist" />
+                                <input type="text" title="Title" data-xml="title" name="d1_title_1" value="title" />
+                                <input type="text" title="ISRC" data-xml="isrc" name="d1_isrc_1" value="isrc" />
+                                <input type="text" title="Duration" data-xml="duration" name="d1_duration_1" value="duration" />
+                                <input type="text" title="Language" data-xml="language" name="d1_language_1" value="language" />
+                                <input type="text" title="Release Date" data-xml="release_date" name="d1_release_date_1" value="release date" />
+                                <input type="text" title="Genre" data-xml="genre" name="d1_genre_1" value="genre" />
+                                <input type="text" title="Label" data-xml="label" name="d1_label_1" value="label" />
+                                Explicit? <input title="Explicit" data-xml="explicit_lyrics" type="checkbox" name="explicit_lyrics" value="yes" /><br />
+                                
+                                <h5>Contributors</h5>
+                                <div id="disk1_contributors_track1" class="contributors">
+                                <input type="text" title="Role" data-xml="role" name="track1_role_1" value="role" />
+                                <input type="text" title="Name" data-xml="name" name="track1_name_1" value="name" />
+                                <input type="button" title="Add Contributor" name="addContributor" onclick="addContributorToTrack(1)" value="Add Contributor" /><br />
+                                </div>
+
+                                <h5>Territories</h5>
+                                <div id="disk1_territories_track1" class="territories">
+                                <input type="text" title="Country" data-xml="country" name="track1_country_1" value="country" />
+                                <input type="text" title="Label" data-xml="label" name="track1_label_1" value="label" />
+                                <input type="button" title="Add Territory" name="addTerritory" onclick="addTerritoryToTrack(1)" value="Add Territory" /><br />
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <input style="width:49%; height:50px;" type="button" title="Generate XML" name="generateXML" onclick="generateXML()" value="Generate XML">    
+        </div>
+        <div id="overlay" style="z-index:10; width:50%; height:100%; position:absolute; top:0; right: 0;">
+            <div id="overlay_inner" style="overflow:auto; padding:10px">
+            &nbsp;
+            </div>
+        </div>
+    </body>
+</html>
